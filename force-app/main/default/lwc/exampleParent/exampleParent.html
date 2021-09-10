@@ -1,0 +1,51 @@
+<template>
+  <lightning-card>
+    <lightning-layout vertical-align="end" horizontal-align="spread" class="slds-p-horizontal_medium">
+      <!-- Type入力 -->
+      <lightning-layout-item flexibility="grow">
+        <lightning-input
+          type="text"
+          label="Type"
+          onchange={onChangeTypeInput}
+          value={type}
+        ></lightning-input>
+      </lightning-layout-item>
+      <!-- Value入力 -->
+      <lightning-layout-item flexibility="grow">
+        <lightning-input
+          type="text"
+          label="Value"
+          onchange={onChangeValueInput}
+          value={value}
+          class="slds-p-horizontal_x-small"
+        ></lightning-input>
+      </lightning-layout-item>
+      <!-- Addボタン -->
+      <lightning-layout-item>
+        <lightning-button
+          label="Add"
+          variant="brand"
+          onclick={onClickAdd}
+        ></lightning-button>
+         <!-- Deleteボタン -->
+        <lightning-button
+          label="Delete"
+          variant="destructive"
+          onclick={onClickDelete}
+          class="slds-m-left_x-small"
+        ></lightning-button>
+      </lightning-layout-item>
+    </lightning-layout>
+
+    <!-- 子コンポーネント -->
+    <div class="slds-m-top_small slds-p-horizontal_medium">
+      <!-- @apiの値受け渡しなしなのがミソ！！ -->
+      <c-example-child></c-example-child>
+    </div>
+
+    <!-- Stateの中身を露出 -->
+    <div class="slds-m-vertical_medium slds-p-horizontal_medium">
+      {stateValue}
+    </div>
+  </lightning-card>
+</template>
